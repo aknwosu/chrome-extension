@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Picture should match snapshot 1`] = `
+<div
+  className="sc-bwzfXH bTEMlB"
+>
+  <div>
+    reprehenderit est deser...
+  </div>
+  <div
+    className="sc-bdVaJa YDxLb"
+    src="https://via.placeholder.com/150/771796"
+  >
+    <div
+      className="sc-htpNat cRXqux"
+      onClick={[Function]}
+    />
+  </div>
+</div>
+`;

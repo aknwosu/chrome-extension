@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="15px" viewBox="0 0 17 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="D---Patient-View" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Replace-Flyout-Big" transform="translate(-36.000000, -73.000000)" fill="#4f9cd5">
+            <path d="M52.5029117,75.0512784 C51.9523657,74.0549287 48.500949,70.7185436 44.4999467,75.5489752 C40.298222,70.7185436 37.0465673,74.0549287 36.4969817,75.0512784 C35.4962509,76.893617 36.0964973,79.6828225 37.4977125,81.0274643 L44.5009071,88 L51.5041017,81.0274643 C52.9034201,79.6828225 53.5036665,76.8945732 52.5029597,75.0512784 L52.5029117,75.0512784 Z" id="heart"></path>
+        </g>
+    </g>
+</svg>
