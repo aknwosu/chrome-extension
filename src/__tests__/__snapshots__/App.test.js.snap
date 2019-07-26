@@ -5,16 +5,16 @@ exports[`App should match snapshot 1`] = `
   className="sc-bxivhb bIyjDb"
 >
   <div
-    className="view-tabs sc-ifAKCX jNkFji"
+    className="view-tabs sc-ifAKCX dOlFsd"
   >
     <div
-      className="sc-EHOje hjAYvn"
+      className="sc-EHOje hGDLuQ"
       onClick={[Function]}
     >
       All
     </div>
     <div
-      className="sc-EHOje cTMgFb"
+      className="sc-EHOje eNhZsZ"
       onClick={[Function]}
     >
       Favorites

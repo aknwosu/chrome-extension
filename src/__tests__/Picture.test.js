@@ -11,6 +11,13 @@ const picture = {
   "url": "https://via.placeholder.com/600/771796",
   "thumbnailUrl": "https://via.placeholder.com/150/771796"
 }
+const picture2 = {
+  "albumId": 1,
+  "id": 6,
+  "title": "deserunt velit ipsam",
+  "url": "https://via.placeholder.com/600/771796",
+  "thumbnailUrl": "https://via.placeholder.com/150/771796"
+}
 
 describe('Picture', () => {
   let wrapper;
@@ -30,7 +37,7 @@ describe('Picture', () => {
     expect(setFavorite).toHaveBeenCalled();
   })
 
-  it('should chek if the picture ia a favorite', () => {  
+  it('should check if the picture ia a favorite', () => {  
     let favorited = wrapper.find(StyledFaveCta).props().isFavorite
     expect(favorited).toBe(true);
   })
@@ -39,5 +46,14 @@ describe('Picture', () => {
     let newWrapper = mount(<Picture picture={picture} favoritesIDs={[]} setFavorite={setFavorite} />)
     let favorited = newWrapper.find(StyledFaveCta).props().isFavorite
     expect(favorited).toBe(false);
+  })
+
+  it('should slice title if it is too long', () => {
+    let newWrapper = mount(<Picture picture={picture} favoritesIDs={[]} setFavorite={setFavorite} />)
+    expect(newWrapper.find('div').at(1).text()).toContain('reprehenderit est deser...')
+  })
+  it('should slice title if it is too long', () => {
+    let newWrapper = mount(<Picture picture={picture2} favoritesIDs={[]} setFavorite={setFavorite} />)
+    expect(newWrapper.find('div').at(1).text()).toContain('deserunt velit ipsam')
   })
 })

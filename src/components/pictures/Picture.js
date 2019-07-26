@@ -8,8 +8,10 @@ import heartIcon from '../../ui/heart-icon.svg'
 export const Picture = (props) => {
   const { picture, favoritesIDs, setFavorite } = props
   const isFavorite = favoritesIDs.includes(picture.id)
+  const title = picture.title.length > 25 ? `${picture.title.slice(0, 23)}...` : picture.title
   return (
     <PictureWrapper>
+      <div>{title}</div>
       <StyledImage src={picture.thumbnailUrl}>
         <StyledFaveCta isFavorite={isFavorite} onClick={() => setFavorite(picture.id)} />
       </StyledImage>
@@ -32,6 +34,7 @@ export const StyledImage = styled.div`
 const PictureWrapper = styled.div`
   height: 180px;
   margin: auto;
+  margin-bottom: 6px;
 `
 export const StyledFaveCta = styled.div`
   position: absolute;
@@ -46,5 +49,4 @@ export const StyledFaveCta = styled.div`
 	width: 28px;
 	height: 28px;
   cursor: pointer;
-  
 `

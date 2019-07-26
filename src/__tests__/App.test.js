@@ -57,8 +57,9 @@ describe('App', () => {
   })
 
   it('creates Pictures on componentDidMount', async () => {
-    const wrapper = shallow(<App />);
+    const wrapper = mount(<App />);
     wrapper.instance();
+    expect(wrapper.state('isLoading')).toBe(true)
     wrapper.setState({ pictures })
     expect(wrapper.find(Pictures)).toBeDefined();
   })

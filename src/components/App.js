@@ -73,13 +73,14 @@ const Tab = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 30px;
+  margin-bottom: 10px;
   > div {
     flex: 1
   }
-  :nth-child(0) {
-    border-right: 1px solid black
-  }
 `
 export const TabItem = styled.div`
-	color: ${({ isActive }) => isActive && 'green'};
+	color: ${({ isActive }) => isActive && '#4f9cd5'};
+  border: ${({ isActive }) => isActive && `2px solid #4f9cd5`};
+  padding: 5px;
 `
