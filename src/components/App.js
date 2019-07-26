@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { fetchPictures, getFavoritedPics, setFavoritePic } from '../api'
 import Pictures from './pictures'
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props)
     this.state = {

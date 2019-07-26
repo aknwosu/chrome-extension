@@ -51,7 +51,7 @@ describe('App', () => {
   })
   describe("fetchPictures", () => {
 
-    it('makes api call', async () => {
+    it('makes api call to fetch all pictures', async () => {
       global.fetch = jest.fn().mockImplementation(() => {
         var p = new Promise((resolve, reject) => {
           resolve({
