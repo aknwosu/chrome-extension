@@ -8,7 +8,6 @@ export const Pictures = (props) => {
       {pictures.map(picture => <Picture key={picture.id} picture={picture} favoritesIDs={favoritesIDs} setFavorite={setFavorite} />)}
     </Fragment>
   )
-
 }
 
 export default Pictures        

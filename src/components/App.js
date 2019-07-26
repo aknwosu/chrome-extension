@@ -46,6 +46,10 @@ class App extends Component {
     }
     return (
       <Container>
+        <Tab className="view-tabs">
+          <TabItem isActive={activeView === 'all'} onClick={() => this.changeTab('all')}>All</TabItem>
+          <TabItem isActive={activeView === 'favorites'} onClick={() => this.changeTab('favorites')}>Favorites</TabItem>
+        </Tab>
         {isLoading && <div>Loading...</div>}
         {!isLoading && pictures.length > 0 && <Pictures pictures={pictures} favoritesIDs={favoritesIDs} setFavorite={this.setFavorite} />}
         {activeView === 'favorites' && pictures.length < 1 && <div>When you have favorites, they will appear here</div>}
@@ -61,4 +65,21 @@ const Container = styled.div`
   background-color: #FBFBFD;
   height: 500px;
   overflow: scroll;
+  margin: auto;
+  width: 200px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto";
+`
+const Tab = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  > div {
+    flex: 1
+  }
+  :nth-child(0) {
+    border-right: 1px solid black
+  }
+`
+export const TabItem = styled.div`
+	color: ${({ isActive }) => isActive && 'green'};
 `
