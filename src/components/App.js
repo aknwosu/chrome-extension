@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import { fetchPictures } from '../api'
+import { fetchPictures, getFavoritedPics, setFavoritePic } from '../api'
 import Pictures from './pictures'
 
 class App extends Component {
@@ -8,24 +8,47 @@ class App extends Component {
     super(props)
     this.state = {
       pictures: [],
-      isLoading: false
+      isLoading: false,
+      activeView: 'all',
+      favoritesIDs: [],
     }
   }
   async componentDidMount() {
     this.setState({ isLoading: true })
     try {
       const pics = await fetchPictures()
-      this.setState({ pictures: pics.slice(0, 20), isLoading: false })
+      this.setState({
+        pictures: pics.slice(0, 20),
+        favoritesIDs: getFavoritedPics(),
+        isLoading: false
+      })
     } catch (error) {
 
     }
   }
+
+  setFavorite = (id) => {
+    setFavoritePic(id)
+    this.setState({ favoritesIDs: getFavoritedPics() })
+  }
+
+  changeTab = (newTab) => {
+    if (this.state.activeView !== newTab) {
+      this.setState({ activeView: newTab })
+    }
+
+  }
+
   render() {
-    const { isLoading, pictures } = this.state
+    let { activeView, pictures, favoritesIDs, isLoading } = this.state
+    if (activeView === 'favorites') {
+      pictures = pictures.filter(picture => favoritesIDs.includes(picture.id))
+    }
     return (
       <Container>
         {isLoading && <div>Loading...</div>}
-        {!isLoading && <Pictures pictures={pictures} />}
+        {!isLoading && pictures.length > 0 && <Pictures pictures={pictures} favoritesIDs={favoritesIDs} setFavorite={this.setFavorite} />}
+        {activeView === 'favorites' && pictures.length < 1 && <div>When you have favorites, they will appear here</div>}
       </Container>
     );
   }

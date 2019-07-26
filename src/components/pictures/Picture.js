@@ -6,12 +6,12 @@ import heartOutlineIcon from '../../ui/heart-outline.svg'
 import heartIcon from '../../ui/heart-icon.svg'
 
 export const Picture = (props) => {
-  const { picture} = props
-
+  const { picture, favoritesIDs, setFavorite } = props
+  const isFavorite = favoritesIDs.includes(picture.id)
   return (
     <PictureWrapper>
       <StyledImage src={picture.thumbnailUrl}>
-        <StyledFaveCta onClick={() => console.log(picture.id)} />
+        <StyledFaveCta isFavorite={isFavorite} onClick={() => setFavorite(picture.id)} />
       </StyledImage>
     </PictureWrapper>
   )
